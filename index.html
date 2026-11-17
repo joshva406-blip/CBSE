@@ -1,0 +1,3050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luffy International School | Ondipudur, Coimbatore | Admissions Open 2026-27</title>
+  <meta name="description" content="Luffy International School, Ondipudur, Coimbatore - 641016. Empowering minds with holistic CBSE curriculum, advanced STEM labs, synthetic athletic arena, and positive psychology. Admissions Open 2026-27.">
+  <meta name="keywords" content="Luffy International School, CBSE School Coimbatore, Ondipudur School, Best CBSE School Coimbatore, Admissions 2026-27">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <style>
+    /* ==========================================================================
+       1. CSS VARIABLES & THEME FOUNDATIONS (RATHINAM-INSPIRED PALETTE)
+       ========================================================================== */
+    :root {
+      --primary: #0c2340;          /* Deep Rathinam Navy */
+      --primary-dark: #071526;     /* Dark Navy Topbar / Footer */
+      --primary-light: #183b63;    /* Royal Blue Accents */
+      --accent: #f59e0b;           /* Vibrant Amber Gold */
+      --accent-hover: #d97706;     /* Deep Gold */
+      --accent-gold2: #fbbf24;     /* Bright Yellow / Amber */
+      --accent-glow: rgba(245, 158, 11, 0.22);
+      
+      --bg-body: #ffffff;
+      --bg-surface: #f8fafc;       /* Light Slate / Grey */
+      --bg-surface-alt: #f1f5f9;   /* Subtle Contrast */
+      --border-color: #e2e8f0;
+      --border-light: #edf2f7;
+      
+      --text-main: #1e293b;        /* Slate 800 */
+      --text-muted: #64748b;       /* Slate 500 */
+      --text-light: #94a3b8;       /* Slate 400 */
+      --text-white: #ffffff;
+
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-heading: 'Outfit', 'Inter', sans-serif;
+      
+      --shadow-sm: 0 2px 4px rgba(12, 35, 64, 0.04);
+      --shadow-md: 0 8px 24px rgba(12, 35, 64, 0.08);
+      --shadow-lg: 0 16px 36px rgba(12, 35, 64, 0.12);
+      --shadow-hover: 0 20px 40px rgba(12, 35, 64, 0.16);
+      
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-main);
+      background-color: var(--bg-body);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      color: var(--primary);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1360px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .section-padding {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 50px auto;
+    }
+
+    .badge-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: var(--radius-full);
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-hover);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 2.35rem;
+      margin-bottom: 16px;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    .section-title span {
+      color: var(--accent);
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .gold-divider {
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 14px auto 18px auto;
+    }
+
+    /* Primary & Outline Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.94rem;
+      padding: 12px 28px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-accent {
+      background-color: var(--accent);
+      color: var(--primary-dark);
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+    }
+
+    .btn-accent:hover {
+      background-color: var(--accent-hover);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(217, 119, 6, 0.4);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(12, 35, 64, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border-color);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background-color: rgba(12, 35, 64, 0.04);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+    }
+
+    .btn-outline-white:hover {
+      border-color: #ffffff;
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       2. TOP UTILITIES BAR (RATHINAM STYLE)
+       ========================================================================== */
+    .topbar {
+      background-color: var(--primary-dark);
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      z-index: 101;
+    }
+
+    .topbar-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .topbar-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: var(--transition);
+    }
+
+    .topbar-item svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--accent-gold2);
+      flex-shrink: 0;
+    }
+
+    .topbar-item a:hover {
+      color: var(--accent-gold2);
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .topbar-link {
+      color: #e2e8f0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+
+    .topbar-link:hover {
+      color: var(--accent-gold2);
+    }
+
+    .topbar-btn {
+      background-color: var(--accent);
+      color: var(--primary-dark);
+      padding: 5px 16px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      transition: var(--transition);
+    }
+
+    .topbar-btn:hover {
+      background-color: var(--accent-hover);
+      color: #ffffff;
+    }
+
+    /* ==========================================================================
+       3. MAIN HEADER & MULTI-TIER NAVIGATION MENU (RATHINAM CATEGORIES)
+       ========================================================================== */
+    .header {
+      background-color: #ffffff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: var(--transition);
+    }
+
+        .header-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+      gap: 16px;
+    }
+
+    /* Logo Brand */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-crest {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      box-shadow: 0 4px 12px rgba(12, 35, 64, 0.15);
+      flex-shrink: 0;
+    }
+
+    .logo-crest svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--accent);
+    }
+
+    .brand-text h1 {
+      font-size: 1.28rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.15;
+      letter-spacing: -0.3px;
+      white-space: nowrap;
+    }
+
+    .brand-text span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: block;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Navigation Menu */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: nowrap;
+      flex-shrink: 0;
+    }
+
+    .nav-item {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 11px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+      border-radius: 8px;
+      white-space: nowrap;
+      line-height: 1;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .nav-link svg {
+      width: 9px;
+      height: 9px;
+      fill: currentColor;
+      flex-shrink: 0;
+      margin-left: 1px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-link:hover, .nav-item.active .nav-link {
+      color: var(--accent-hover);
+      background-color: rgba(245, 158, 11, 0.08);
+    }
+
+    /* Dropdown Menus */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 250px;
+      background-color: #ffffff;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+      padding: 8px 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      z-index: 110;
+      list-style: none;
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .nav-item:hover .nav-link svg {
+      transform: rotate(180deg);
+    }
+
+    .dropdown li a {
+      display: block;
+      padding: 9px 18px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .dropdown li a:hover {
+      background-color: var(--bg-surface);
+      color: var(--accent-hover);
+      padding-left: 22px;
+    }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+.hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--primary);
+    }
+
+    .hamburger-btn svg {
+      width: 26px;
+      height: 26px;
+      fill: currentColor;
+    }
+
+    /* ==========================================================================
+       4. HERO CAROUSEL SECTION (WITH REAL DISTINCT INDIAN PHOTOS)
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      background-color: var(--primary-dark);
+      overflow: hidden;
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+    }
+
+    .carousel-slider {
+      width: 100%;
+      position: relative;
+      height: 580px;
+    }
+
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease-in-out;
+      display: flex;
+      align-items: center;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .slide-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.42);
+      z-index: 1;
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      color: #ffffff;
+      max-width: 780px;
+      padding: 40px 0;
+    }
+
+    .slide-title {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .slide-title span {
+      color: var(--accent-gold2);
+    }
+
+    .slide-desc {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #e2e8f0;
+      margin-bottom: 32px;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .slide-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Carousel Controls */
+    .carousel-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(12, 35, 64, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      transition: var(--transition);
+      backdrop-filter: blur(4px);
+    }
+
+    .carousel-nav-btn:hover {
+      background: var(--accent);
+      color: var(--primary-dark);
+      border-color: var(--accent);
+    }
+
+    .carousel-prev { left: 24px; }
+    .carousel-next { right: 24px; }
+
+    .carousel-indicators {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 5;
+    }
+
+    .carousel-dot {
+      width: 32px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .carousel-dot.active {
+      background: var(--accent);
+      width: 48px;
+    }
+
+    /* ==========================================================================
+       5. WELCOME BANNER (RATHINAM STYLE EMBLEMATIC BANNER)
+       ========================================================================== */
+    .welcome-banner {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #ffffff;
+      padding: 38px 0;
+      border-bottom: 4px solid var(--accent);
+    }
+
+    .welcome-banner-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .welcome-text h2 {
+      color: #ffffff;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .welcome-text h2 span {
+      color: var(--accent-gold2);
+    }
+
+    .welcome-text p {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+    }
+
+    .welcome-stats {
+      display: flex;
+      gap: 32px;
+    }
+
+    .stat-pill {
+      text-align: center;
+    }
+
+    .stat-pill strong {
+      display: block;
+      font-size: 1.65rem;
+      font-family: var(--font-heading);
+      color: var(--accent-gold2);
+      line-height: 1.1;
+    }
+
+    .stat-pill span {
+      font-size: 0.78rem;
+      color: #e2e8f0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ==========================================================================
+       6. CONTACT US SECTION (FULL STRUCTURE FROM RATHINAMSCHOOL.AC.IN/CONTACT/)
+       ========================================================================== */
+    .contact-page-header {
+      background: linear-gradient(135deg, #071526 0%, #0c2340 60%, #153966 100%);
+      color: #ffffff;
+      padding: 60px 0 50px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-page-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 50% 30%, rgba(245, 158, 11, 0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--accent-gold2);
+    }
+
+    .contact-hero-title {
+      font-size: 2.85rem;
+      color: #ffffff;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .contact-hero-desc {
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* Main Contact Two-Column Container */
+    .contact-section {
+      background-color: var(--bg-surface);
+      padding: 70px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* Left Column: Contact Information */
+    .contact-info-card {
+      background-color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 44px 38px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      height: 100%;
+    }
+
+    .info-card-header h2 {
+      font-size: 1.9rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .info-card-header p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+      margin-bottom: 30px;
+    }
+
+    .contact-item-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-item-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      transition: var(--transition);
+    }
+
+    .contact-item-box:hover {
+      border-color: var(--accent);
+      background-color: #ffffff;
+      box-shadow: var(--shadow-sm);
+      transform: translateX(4px);
+    }
+
+    .contact-icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(12, 35, 64, 0.15);
+    }
+
+    .contact-icon-badge svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .contact-item-content h3 {
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .contact-item-content p {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .contact-item-content a {
+      color: var(--primary-light);
+      font-weight: 600;
+    }
+
+    .contact-item-content a:hover {
+      color: var(--accent-hover);
+    }
+
+    .working-hours-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+      padding: 12px 18px;
+      background: rgba(12, 35, 64, 0.05);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Right Column: Interactive Form */
+    .contact-form-card {
+      background-color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 44px 38px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .form-header h2 {
+      font-size: 1.9rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .form-header p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 26px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-label {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 0.94rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background-color: #ffffff;
+      color: var(--text-main);
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(24, 59, 99, 0.12);
+    }
+
+    textarea.form-control {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* ==========================================================================
+       7. SECTION 11 FEATURE CARDS (FROM RATHINAMSCHOOL.AC.IN/CONTACT/)
+       ========================================================================== */
+    .feature-contact-cards {
+      padding: 60px 0 80px 0;
+      background-color: #ffffff;
+    }
+
+    .cards-row-three {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .feature-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--accent);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      background-color: #ffffff;
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-circle-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: var(--accent);
+      margin: 0 auto 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 18px rgba(12, 35, 64, 0.15);
+    }
+
+    .feature-circle-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .feature-card .feature-highlight {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-hover);
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       8. INTERACTIVE CAMPUS MAP (LEAFLET PINNED TO ONDIPUDUR, COIMBATORE)
+       ========================================================================== */
+    .map-section {
+      position: relative;
+      background-color: var(--bg-surface);
+    }
+
+    #campusMap {
+      width: 100%;
+      height: 480px;
+      z-index: 10;
+    }
+
+    .map-overlay-card {
+      position: absolute;
+      bottom: 30px;
+      left: 40px;
+      z-index: 20;
+      background: #ffffff;
+      padding: 24px 28px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      max-width: 380px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .map-overlay-card h4 {
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .map-overlay-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    /* ==========================================================================
+       9. CURRICULUM DEVELOPMENTAL STAGES (4 STAGES FROM RATHINAM HOME)
+       ========================================================================== */
+    .stages-section {
+      background-color: #ffffff;
+    }
+
+    .stage-filter-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .stage-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .stage-btn.active, .stage-btn:hover {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .stages-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .stage-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stage-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      background-color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .stage-header {
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 16px;
+    }
+
+    .stage-grade-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      background: rgba(12, 35, 64, 0.08);
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .stage-card h3 {
+      font-size: 1.35rem;
+      color: var(--primary);
+    }
+
+    .stage-pillars-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .stage-pillar-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      line-height: 1.45;
+    }
+
+    .stage-pillar-item svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--accent);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* ==========================================================================
+       10. WHY CHOOSE SECTION (POSITIVE PSYCHOLOGY & 6 PILLARS)
+       ========================================================================== */
+    .why-choose-section {
+      background-color: var(--bg-surface);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .why-item-card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 32px 26px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .why-item-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+
+    .why-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-hover);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .why-icon-box svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    .why-item-card h3 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .why-item-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       11. PRINCIPAL'S DESK (DISTINCT SENIOR INDIAN ACADEMICIAN PORTRAIT)
+       ========================================================================== */
+    .principal-section {
+      background-color: #ffffff;
+    }
+
+    .principal-container {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 48px;
+      align-items: center;
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      padding: 40px;
+    }
+
+    .principal-photo-card {
+      text-align: center;
+    }
+
+    .principal-photo-card img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 18px;
+    }
+
+    .principal-photo-card h3 {
+      font-size: 1.35rem;
+      color: var(--primary);
+    }
+
+    .principal-photo-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .principal-badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--accent-hover);
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .principal-message {
+      padding-left: 10px;
+    }
+
+    .principal-message .quote-mark {
+      font-size: 3rem;
+      color: var(--accent);
+      line-height: 1;
+      font-family: serif;
+    }
+
+    .principal-message h2 {
+      font-size: 1.95rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .principal-message p {
+      color: var(--text-main);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+
+    /* ==========================================================================
+       12. CAMPUS LIFE GALLERY (DISTINCT REAL PHOTOS FOR EVERY CATEGORY)
+       ========================================================================== */
+    .gallery-section {
+      background-color: var(--bg-surface);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 270px;
+      gap: 22px;
+    }
+
+    .gallery-grid figure:nth-child(1) {
+      grid-column: span 2;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 24px 20px 16px 20px;
+      background: linear-gradient(to top, rgba(7, 21, 38, 0.9) 0%, rgba(7, 21, 38, 0.4) 60%, transparent 100%);
+      color: #ffffff;
+      transition: var(--transition);
+    }
+
+    .gallery-category-pill {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--accent-gold2);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+
+    .gallery-overlay h4 {
+      color: #ffffff;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       13. EDUCATIONAL INSIGHTS & BLOG ARTICLES (FROM RATHINAM BLOG STRUCTURE)
+       ========================================================================== */
+    .blog-section {
+      background-color: #ffffff;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .blog-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+
+    .blog-img-box {
+      height: 200px;
+      background-color: var(--primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .blog-date-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--accent);
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 0.74rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+    }
+
+    .blog-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .blog-category {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent-hover);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .blog-content h3 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .blog-content p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .blog-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--primary-light);
+    }
+
+    .blog-link:hover {
+      color: var(--accent-hover);
+      gap: 10px;
+    }
+
+    /* ==========================================================================
+       14. CALL-TO-ACTION BANNER ("EMPOWER MINDS, SHAPE FUTURES!")
+       ========================================================================== */
+    .cta-banner-section {
+      background: linear-gradient(135deg, var(--primary) 0%, #153966 100%);
+      color: #ffffff;
+      padding: 70px 0;
+      text-align: center;
+      position: relative;
+      border-top: 4px solid var(--accent);
+    }
+
+    .cta-banner-content {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .cta-banner-content h2 {
+      color: #ffffff;
+      font-size: 2.5rem;
+      margin-bottom: 14px;
+    }
+
+    .cta-banner-content h2 span {
+      color: var(--accent-gold2);
+    }
+
+    .cta-banner-content p {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .cta-btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================================================
+       15. TESTIMONIALS (4 DISTINCT INDIAN INDIVIDUALS)
+       ========================================================================== */
+    .testimonials-section {
+      background-color: var(--bg-surface);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .testi-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px 22px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .testi-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+
+    .testi-stars {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+
+    .testi-quote {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      line-height: 1.65;
+      font-style: italic;
+      margin-bottom: 22px;
+      flex-grow: 1;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-top: 1px solid var(--border-light);
+      padding-top: 14px;
+    }
+
+    .testi-author img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--accent);
+      flex-shrink: 0;
+    }
+
+    .testi-author h4 {
+      font-size: 0.95rem;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+
+    .testi-author span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: block;
+      line-height: 1.3;
+    }
+
+    /* ==========================================================================
+       16. INSTITUTIONAL FOOTER (4-COLUMN ARCHITECTURE FROM RATHINAM)
+       ========================================================================== */
+    .footer {
+      background-color: var(--primary-dark);
+      color: #94a3b8;
+      padding-top: 70px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.92rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col h3 {
+      color: #ffffff;
+      font-size: 1.15rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 36px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .footer-about p {
+      line-height: 1.7;
+      margin-bottom: 20px;
+      color: #cbd5e1;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      transition: var(--transition);
+    }
+
+    .social-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .social-btn:hover {
+      background: var(--accent);
+      color: var(--primary-dark);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links li a {
+      color: #cbd5e1;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-links li a:hover {
+      color: var(--accent-gold2);
+      transform: translateX(4px);
+    }
+
+    .footer-contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    .footer-contact-item svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--accent-gold2);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Sub-footer Copyright */
+    .sub-footer {
+      background-color: #030a13;
+      padding: 22px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.84rem;
+    }
+
+    .sub-footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .sub-footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .sub-footer-links a:hover {
+      color: var(--accent-gold2);
+    }
+
+    /* ==========================================================================
+       17. FLOATING ELEMENTS (ENQUIRE NOW VERTICAL TAB & WHATSAPP)
+       ========================================================================== */
+
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 58px;
+      height: 58px;
+      background-color: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      z-index: 99;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
+    }
+
+    .floating-whatsapp svg {
+      width: 32px;
+      height: 32px;
+      fill: #ffffff;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 44px;
+      height: 44px;
+      background-color: var(--primary);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 90;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--accent);
+      color: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    /* ==========================================================================
+       18. MODALS & PASS GENERATOR
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(7, 21, 38, 0.75);
+      backdrop-filter: blur(5px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-window {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      position: relative;
+      border-top: 5px solid var(--accent);
+      transform: scale(0.95);
+      transition: all 0.3s ease;
+    }
+
+    .modal-backdrop.active .modal-window {
+      transform: scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: var(--bg-surface);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .modal-close-btn:hover {
+      background: #fee2e2;
+      color: #ef4444;
+    }
+
+    .modal-body {
+      padding: 36px 32px;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 210;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-caption {
+      color: #ffffff;
+      margin-top: 16px;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    /* Toast Notification */
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--accent);
+      z-index: 300;
+      font-size: 0.92rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .toast-box.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ==========================================================================
+       19. RESPONSIVE DESIGN (MEDIA QUERIES)
+       ========================================================================== */
+    
+    @media (max-width: 1200px) {
+      .brand-text h1 { font-size: 1.12rem; }
+      .nav-link { padding: 8px 8px; font-size: 0.88rem; gap: 4px; }
+      .header-wrap { gap: 8px; }
+    }
+
+    @media (max-width: 1024px) {
+      .nav-menu { display: none; }
+      .hamburger-btn { display: block; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .cards-row-three { grid-template-columns: 1fr 1fr; }
+      .stages-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .principal-container { grid-template-columns: 1fr; }
+      .principal-photo-card img { height: 320px; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .topbar-wrap { justify-content: center; }
+      .cards-row-three { grid-template-columns: 1fr; }
+      .stages-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-grid figure:nth-child(1) { grid-column: span 1; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full-width { grid-column: span 1; }
+      .slide-title { font-size: 2.2rem; }
+      .contact-hero-title { font-size: 2.2rem; }
+      .map-overlay-card { position: static; max-width: 100%; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP UTILITIES BAR (RATHINAM STYLE)
+       ========================================================================== -->
+  <aside class="topbar">
+    <div class="container topbar-wrap">
+      <div class="topbar-info">
+        <div class="topbar-item">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg>
+          <a href="tel:04222271367">0422-2271367</a> &bull; <a href="tel:+919443022345">+91 94430 22345</a>
+        </div>
+        <div class="topbar-item">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <a href="mailto:admissions@luffyinternationalschool.edu">admissions@luffyinternationalschool.edu</a>
+        </div>
+        <div class="topbar-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>Ondipudur, Coimbatore - 641016</span>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a href="#map" class="topbar-link">Location</a>
+        <a href="#contact" class="topbar-link" onclick="openModal('parentModal')">Parent Login</a>
+        <a href="#contact" class="topbar-btn">Apply Now</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN NAVIGATION HEADER (RATHINAM CATEGORIES & DROPDOWNS)
+       ========================================================================== -->
+  <header class="header">
+    <div class="container header-wrap">
+      <!-- School Logo & Title -->
+      <a href="index.html" class="brand-logo">
+        <div class="logo-crest">
+          <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+        </div>
+        <div class="brand-text">
+          <h1>Luffy International School</h1>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+          
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About Us <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></a>
+            <ul class="dropdown">
+              <li><a href="about.html">Overview &amp; Heritage</a></li>
+              <li><a href="about.html#leadership">Principal's Address</a></li>
+              <li><a href="about.html#why-choose">Why Choose Luffy</a></li>
+              <li><a href="about.html#notices">Notice Board &amp; Circulars</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="curriculum.html" class="nav-link">Curriculum <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></a>
+            <ul class="dropdown">
+              <li><a href="foundation-stage.html">Foundation (Nursery - Gr 2)</a></li>
+              <li><a href="preparatory-stage.html">Preparatory (Grades 3 - 5)</a></li>
+              <li><a href="middle-school.html">Middle School (Grades 6 - 8)</a></li>
+              <li><a href="senior-secondary.html">Senior Secondary (Gr 9 - 12)</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="post-school-activities.html" class="nav-link">Academics <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></a>
+            <ul class="dropdown">
+              <li><a href="post-school-activities.html">Post-School Activities</a></li>
+              <li><a href="celebrations-cultural-day.html">Celebrations &amp; Cultural Day</a></li>
+              <li><a href="career-counselling.html">Career Counselling</a></li>
+              <li><a href="cbse-cluster-athletics.html">CBSE Cluster &amp; Athletics</a></li>
+              <li><a href="guest-lectures-hackathons.html">Guest Lectures &amp; Hackathons</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="advanced-stem-labs.html" class="nav-link">Facilities <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></a>
+            <ul class="dropdown">
+              <li><a href="advanced-stem-labs.html">Advanced STEM Labs</a></li>
+              <li><a href="synthetic-sports-arena.html">Synthetic Sports Arena</a></li>
+              <li><a href="central-library.html">Central Library</a></li>
+              <li><a href="performing-arts-studio.html">Performing Arts Studio</a></li>
+              <li><a href="smart-coding-innovation-hub.html">Smart Coding Innovation Hub</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Button & Mobile Hamburger -->
+      <div class="header-cta">
+        <a href="#contact" class="btn btn-accent" style="padding: 9px 22px; font-size: 0.88rem;">Enquire Now</a>
+        <button class="hamburger-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO CAROUSEL SECTION (WITH DISTINCT INDIAN REAL PHOTOS)
+       ========================================================================== -->
+  <section class="hero-section">
+    <div class="carousel-slider" id="heroCarousel">
+      
+      <!-- Slide 1: Group of Indian School Students -->
+      <div class="carousel-slide active">
+        <img src="images/hero-indian-students.jpg" alt="Indian High School Students on Luffy International School Campus" class="slide-bg">
+        <div class="container">
+          <div class="slide-content">
+            <h2 class="slide-title">Inspiring Excellence. <span>Nurturing Leaders.</span></h2>
+            <p class="slide-desc">Luffy International School bridges rigorous academic standards with future-ready skills, sportsmanship, and values in Ondipudur, Coimbatore.</p>
+            <div class="slide-actions">
+              <a href="#contact" class="btn btn-accent">Apply for Admission</a>
+              <a href="#about" class="btn btn-outline-white">Explore School &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Indian Teacher Mentoring in Digital Lab -->
+      <div class="carousel-slide">
+        <img src="images/hero-indian-teacher.jpg" alt="Indian Teacher Mentoring Students in Modern Smart Classroom" class="slide-bg">
+        <div class="container">
+          <div class="slide-content">
+            <h2 class="slide-title">Empower Minds. <span>Shape Futures.</span></h2>
+            <p class="slide-desc">From foundational phonics to AI robotics and competitive NEET/JEE mentorship, our faculty ensures every child achieves their full academic and personal potential.</p>
+            <div class="slide-actions">
+              <a href="#stages" class="btn btn-accent">View Curriculum Stages</a>
+              <a href="#contact" class="btn btn-outline-white">Book Campus Tour</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Cultural Mime & Stage Performance -->
+      <div class="carousel-slide">
+        <img src="images/hero-indian-cultural.jpg" alt="Indian Students Cultural Day Stage Performance" class="slide-bg">
+        <div class="container">
+          <div class="slide-content">
+            <h2 class="slide-title">Passion in Arts. <span>Glory on Field.</span></h2>
+            <p class="slide-desc">A 28-acre green campus equipped with Olympic-grade athletic tracks, classical arts academies, and state-of-the-art innovation hubs built for holistic growth.</p>
+            <div class="slide-actions">
+              <a href="#campus" class="btn btn-accent">Explore Campus Facilities</a>
+              <a href="#voices" class="btn btn-outline-white">Read Parent Voices</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Navigation Arrows -->
+      <button class="carousel-nav-btn carousel-prev" onclick="moveSlide(-1)" aria-label="Previous Slide">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <button class="carousel-nav-btn carousel-next" onclick="moveSlide(1)" aria-label="Next Slide">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </button>
+
+      <!-- Carousel Indicators -->
+      <div class="carousel-indicators">
+        <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+        <div class="carousel-dot" onclick="goToSlide(1)"></div>
+        <div class="carousel-dot" onclick="goToSlide(2)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       WELCOME INSTITUTIONAL BANNER (RATHINAM STYLE)
+       ========================================================================== -->
+  <section class="welcome-banner">
+    <div class="container welcome-banner-wrap">
+      <div class="welcome-text">
+        <h2>Welcome to <span>Luffy International</span> School</h2>
+        <p>Affiliated to Central Board of Secondary Education (CBSE), New Delhi &bull; Ondipudur, Coimbatore - 641016</p>
+      </div>
+      <div class="welcome-stats">
+        <div class="stat-pill">
+          <strong>100%</strong>
+          <span>CBSE Board Pass</span>
+        </div>
+        <div class="stat-pill">
+          <strong>1:15</strong>
+          <span>Mentor Ratio</span>
+        </div>
+        <div class="stat-pill">
+          <strong>28 Acres</strong>
+          <span>Lush Campus</span>
+        </div>
+        <div class="stat-pill">
+          <strong>40+</strong>
+          <span>Co-Curricular Clubs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       CURRICULUM DEVELOPMENTAL STAGES (4 STAGES FROM RATHINAM HOME)
+       ========================================================================== -->
+  <section class="stages-section section-padding" id="stages">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag">Academic Excellence</span>
+        <h2 class="section-title">Four Developmental Stages, <span>One Clear Path</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-subtitle">Following the National Education Policy (NEP) and CBSE curriculum architecture, our 4-tier pedagogical model guarantees personalized attention at every developmental milestone.</p>
+      </div>
+
+      <!-- Stage Filter Tabs -->
+      <div class="stage-filter-nav">
+        <button class="stage-btn active" onclick="filterStageTab('all')">All Stages</button>
+        <button class="stage-btn" onclick="filterStageTab('foundational')">Foundation (Nursery - Gr 2)</button>
+        <button class="stage-btn" onclick="filterStageTab('preparatory')">Preparatory (Grades 3 - 5)</button>
+        <button class="stage-btn" onclick="filterStageTab('middle')">Middle School (Grades 6 - 8)</button>
+        <button class="stage-btn" onclick="filterStageTab('senior')">Senior Secondary (Grades 9 - 12)</button>
+      </div>
+
+      <!-- Stage Cards Grid -->
+      <div class="stages-grid" id="stagesContainer">
+        
+        <!-- Stage 1 -->
+        <div class="stage-card" data-stage="foundational">
+          <div class="stage-header">
+            <span class="stage-grade-badge">Ages 3 &ndash; 7</span>
+            <h3>Foundation Stage</h3>
+            <p style="font-size:0.88rem;color:var(--text-muted)">Nursery &ndash; Grade 2</p>
+          </div>
+          <p class="stage-desc" style="color: #475569; font-size: 0.94rem; line-height: 1.7; margin: 18px 0 24px 0;">Our early childhood program nurtures natural curiosity through sensory play, joyful phonics, Montessori manipulatives, and warm social integration aligned with NEP 2026 ECCE guidelines.</p>
+          <a href="foundation-stage.html" class="btn btn-outline" style="width:100%;font-size:0.84rem;">Explore Foundation Stage &rarr;</a>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="stage-card" data-stage="preparatory">
+          <div class="stage-header">
+            <span class="stage-grade-badge">Ages 8 &ndash; 10</span>
+            <h3>Preparatory Stage</h3>
+            <p style="font-size:0.88rem;color:var(--text-muted)">Grades 3 &ndash; 5</p>
+          </div>
+          <p class="stage-desc" style="color: #475569; font-size: 0.94rem; line-height: 1.7; margin: 18px 0 24px 0;">Building strong foundational fluency across languages, visual mathematics, environmental discovery, and collaborative STEM projects to cultivate confident, independent young thinkers.</p>
+          <a href="preparatory-stage.html" class="btn btn-outline" style="width:100%;font-size:0.84rem;">Explore Preparatory Stage &rarr;</a>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="stage-card" data-stage="middle">
+          <div class="stage-header">
+            <span class="stage-grade-badge">Ages 11 &ndash; 14</span>
+            <h3>Middle School</h3>
+            <p style="font-size:0.88rem;color:var(--text-muted)">Grades 6 &ndash; 8</p>
+          </div>
+          <p class="stage-desc" style="color: #475569; font-size: 0.94rem; line-height: 1.7; margin: 18px 0 24px 0;">Transitioning students into rigorous experimental sciences, Python coding, advanced algebra, and public debate with dedicated subject laboratories and mentor guidance.</p>
+          <a href="middle-school.html" class="btn btn-outline" style="width:100%;font-size:0.84rem;">Explore Middle School &rarr;</a>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="stage-card" data-stage="senior">
+          <div class="stage-header">
+            <span class="stage-grade-badge">Ages 14 &ndash; 18</span>
+            <h3>Senior Secondary</h3>
+            <p style="font-size:0.88rem;color:var(--text-muted)">Grades 9 &ndash; 12</p>
+          </div>
+          <p class="stage-desc" style="color: #475569; font-size: 0.94rem; line-height: 1.7; margin: 18px 0 24px 0;">Preparing scholars for 100% CBSE board excellence and competitive entrance exams (NEET, JEE, CUET) across specialized streams with personalized mentorship and diagnostic assessments.</p>
+          <a href="senior-secondary.html" class="btn btn-outline" style="width:100%;font-size:0.84rem;">Explore Senior Secondary &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       WHY CHOOSE LUFFY (POSITIVE PSYCHOLOGY & 6 PILLARS)
+       ========================================================================== -->
+  <section class="why-choose-section section-padding" id="why-choose">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag">Why Choose Us</span>
+        <h2 class="section-title">Positive Psychology in <span>Holistic Learning</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-subtitle">We believe a happy child learns faster and achieves more. Our institution weaves positive psychology, scientific curiosity, and character building into daily school life.</p>
+      </div>
+
+      <div class="why-grid">
+        <!-- 1 -->
+        <div class="why-item-card">
+          <div class="why-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+          <h3>Child-Centric Mentorship</h3>
+          <p>Every learner is assigned a mentor pod with a 1:15 ratio, ensuring individual pacing, emotional well-being, and academic confidence.</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="why-item-card">
+          <div class="why-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+          </div>
+          <h3>100% CBSE Pass Record</h3>
+          <p>A proven academic legacy with our students consistently bagging district ranks and top scores in CBSE Class 10 &amp; 12 board exams.</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="why-item-card">
+          <div class="why-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+          </div>
+          <h3>Advanced STEM &amp; AI Labs</h3>
+          <p>Equipped with robotics kits, analytical spectrophotometers, 3D printing stations, and high-speed computational clusters.</p>
+        </div>
+
+        <!-- 4 -->
+        <div class="why-item-card">
+          <div class="why-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          </div>
+          <h3>Olympic-Grade Sports Turf</h3>
+          <p>Synthetic 400m running track, football turf, certified cricket nets, indoor badminton courts, and professional NIS-certified coaches.</p>
+        </div>
+
+        <!-- 5 -->
+        <div class="why-item-card">
+          <div class="why-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+          </div>
+          <h3>Smart Digital Classrooms</h3>
+          <p>Interactive 75-inch 4K panels in every classroom, hybrid digital curriculum integration, and automated parent communication apps.</p>
+        </div>
+
+        <!-- 6 -->
+        <div class="why-item-card">
+          <div class="why-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+          </div>
+          <h3>Safe GPS-Tracked Transport</h3>
+          <p>Comprehensive fleet of GPS and CCTV-enabled buses covering all key residential hubs across Coimbatore, Tirupur, and Pollachi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ABOUT SECTION & PRINCIPAL'S DESK (DISTINCT REAL SENIOR EDUCATOR PORTRAIT)
+       ========================================================================== -->
+  <section class="principal-section section-padding" id="about">
+    <div class="container">
+      <div class="principal-container" id="leadership">
+        
+        <div class="principal-photo-card">
+          <img src="images/principal-narayanan.jpg" alt="Prof. Dr. K. Narayanan, Principal of Luffy International School">
+          <h3>Prof. Dr. K. Narayanan</h3>
+          <p>M.Sc., M.Ed., Ph.D.</p>
+          <span class="principal-badge">Principal &amp; Senior Academic Director</span>
+        </div>
+
+        <div class="principal-message">
+          <div class="quote-mark">&ldquo;</div>
+          <span class="badge-tag">Principal's Address</span>
+          <h2>True education empowers children to question, create, and lead with empathy.</h2>
+          <p>Welcome to Luffy International School, Coimbatore. As we open admissions for the 2026&ndash;27 academic year, our commitment remains unshakable: to create an inclusive, joyful environment where academic brilliance coexists with scientific innovation, ethical groundedness, and artistic discovery.</p>
+          <p>We do not merely teach for examinations; we cultivate independent thinkers, responsible citizens, and compassionate innovators ready to meet tomorrow's global challenges. I warmly invite you to walk through our smart labs, sports grounds, and meet our faculty in person.</p>
+          <div style="margin-top:20px;">
+            <a href="#contact" class="btn btn-primary" style="margin-right:12px;">Schedule Campus Walkthrough</a>
+            <button class="btn btn-outline" onclick="copyContact('principal@luffycbse.edu', 'Principal\'s email copied!')">&#9993; Write to Principal</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CAMPUS FACILITIES & STUDENT LIFE GALLERY (DISTINCT REAL PHOTOS FOR EVERY CATEGORY)
+       ========================================================================== -->
+  <section class="gallery-section section-padding" id="campus">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag">Campus Life &amp; Facilities</span>
+        <h2 class="section-title">World-Class Infrastructure <span>Built to Excel</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-subtitle">Explore our 28-acre green campus in Ondipudur featuring Olympic-standard sporting arenas, advanced research laboratories, and inspiring creative studios.</p>
+      </div>
+
+      <div class="gallery-grid">
+        
+        <!-- Sports -->
+        <figure class="gallery-item" onclick="openLightbox('images/gallery-sports.jpg', 'Sports Grounds & Championship Athletics Field')">
+          <img src="images/gallery-sports.jpg" alt="Indian high school students competing in athletics championship sports day" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-category-pill">Athletics &amp; Sports</span>
+            <h4>Championship Synthetic Track &amp; Football Turf</h4>
+          </div>
+        </figure>
+
+        <!-- Library -->
+        <figure class="gallery-item" onclick="openLightbox('images/gallery-library.jpg', 'Modern Central Library & Digital Media Centre')">
+          <img src="images/gallery-library.jpg" alt="Indian students studying and reading in school central library" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-category-pill">Knowledge Hub</span>
+            <h4>Two-Story Central Library &amp; Reading Hall</h4>
+          </div>
+        </figure>
+
+        <!-- Science Labs -->
+        <figure class="gallery-item" onclick="openLightbox('images/gallery-chemistry.jpg', 'Advanced Chemistry & Molecular Science Hub')">
+          <img src="images/gallery-chemistry.jpg" alt="Indian high school students conducting scientific experiments in chemistry lab" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-category-pill">STEM Laboratories</span>
+            <h4>Advanced Chemistry &amp; Molecular Science Lab</h4>
+          </div>
+        </figure>
+
+        <!-- Performing Arts -->
+        <figure class="gallery-item" onclick="openLightbox('images/gallery-arts.jpg', 'Conservatory of Music & Performing Arts Auditorium')">
+          <img src="images/gallery-arts.jpg" alt="Indian students performing classical cultural dance on auditorium stage" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-category-pill">Performing Arts</span>
+            <h4>Classical Dance, Music &amp; Theater Stage</h4>
+          </div>
+        </figure>
+
+        <!-- Coding & Innovation -->
+        <figure class="gallery-item" onclick="openLightbox('images/gallery-coding.jpg', 'Collaborative Coding & Smart Digital Innovation Hub')">
+          <img src="images/gallery-coding.jpg" alt="Indian students collaborating on coding and digital robotics projects" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-category-pill">Innovation &amp; AI</span>
+            <h4>Smart Digital Coding &amp; Robotics Studio</h4>
+          </div>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EDUCATIONAL INSIGHTS & BLOG (FROM RATHINAM BLOG STRUCTURE)
+       ========================================================================== -->
+  <section class="blog-section section-padding" id="blog">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag">Educational Insights</span>
+        <h2 class="section-title">Latest Articles &amp; <span>Parent Guides</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-subtitle">Stay informed with expert perspectives on modern pedagogy, CBSE curriculum trends, and preparing your child for the future.</p>
+      </div>
+
+      <div class="blog-grid">
+        
+        <!-- Post 1 -->
+        <article class="blog-card">
+          <div class="blog-img-box">
+            <img src="images/about-classroom.jpg" alt="Best CBSE Schools in Coimbatore Admission Guide">
+            <span class="blog-date-badge">Nov 2026</span>
+          </div>
+          <div class="blog-content">
+            <span class="blog-category">Admission Guide</span>
+            <h3>Best CBSE Schools in Coimbatore: Admission Guide 2026&ndash;27</h3>
+            <p>A comprehensive parent checklist for evaluating curriculum rigor, teacher-student ratios, STEM facilities, and fee transparency in Coimbatore.</p>
+            <a href="#contact" class="blog-link">Read Full Guide &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="blog-card">
+          <div class="blog-img-box">
+            <img src="images/gallery-coding.jpg" alt="New Education Trends in 2026">
+            <span class="blog-date-badge">Dec 2026</span>
+          </div>
+          <div class="blog-content">
+            <span class="blog-category">Pedagogy</span>
+            <h3>New Education Trends in 2026: What's Changing in School Learning?</h3>
+            <p>How AI-assisted tutoring, experiential laboratory modules, and positive psychology are replacing rote memorization in top Indian schools.</p>
+            <a href="#contact" class="blog-link">Read Article &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="blog-card">
+          <div class="blog-img-box">
+            <img src="images/gallery-sports.jpg" alt="7 Future Skills Every Student Needs Beyond Grades">
+            <span class="blog-date-badge">Jan 2027</span>
+          </div>
+          <div class="blog-content">
+            <span class="blog-category">Student Development</span>
+            <h3>7 Future Skills Every Student Needs to Learn Beyond Grades</h3>
+            <p>From critical inquiry and collaborative debate to sports resilience and digital ethics: the holistic foundations for 21st-century leadership.</p>
+            <a href="#contact" class="blog-link">Read Article &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CALL-TO-ACTION BANNER ("EMPOWER MINDS, SHAPE FUTURES!")
+       ========================================================================== -->
+  <section class="cta-banner-section">
+    <div class="container cta-banner-content">
+      <span class="badge-tag" style="background:rgba(255,255,255,0.15);color:var(--accent-gold2);margin-bottom:14px;">Admissions Open 2026&ndash;27</span>
+      <h2>Empower Minds, <span>Shape Futures!</span></h2>
+      <p>Give your child the advantage of a future-focused CBSE education in a supportive, inspiring environment. Limited seats available across Nursery to Grade 11 for the upcoming academic year.</p>
+      <div class="cta-btn-group">
+        <a href="#contact" class="btn btn-accent" style="font-size:1.05rem;padding:14px 34px;">Apply for Admission Now</a>
+        <button class="btn btn-outline-white" onclick="showToast('Downloading Luffy International School 2026-27 Prospectus...')">Download Prospectus PDF</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       COMMUNITY TESTIMONIALS (4 DISTINCT INDIAN INDIVIDUALS)
+       ========================================================================== -->
+  <section class="testimonials-section section-padding" id="voices">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag">Community Voices</span>
+        <h2 class="section-title">What Our Students &amp; <span>Parents Say</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-subtitle">Real experiences from our alumni thriving at premier universities and parents partnering with us in Coimbatore.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        
+        <!-- Priya -->
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-quote">&ldquo;Luffy International School didn't just teach me coding; the faculty helped me build confidence to present my AI research at international conferences. Teachers here believe in you long before you believe in yourself.&rdquo;</p>
+          <div class="testi-author">
+            <img src="images/alumni-priya.jpg" alt="Priya Sharma, Alumni">
+            <div>
+              <h4>Priya Sharma</h4>
+              <span>Class of 2024 &bull; Imperial College London</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Karthik -->
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-quote">&ldquo;Balancing national science olympiads with CBSE board preparations was seamless thanks to our mentors. They instilled the discipline and curiosity that continue to guide my robotics research at IIT Madras.&rdquo;</p>
+          <div class="testi-author">
+            <img src="images/alumni-karthik-new.jpg" alt="R. Karthik, Alumni">
+            <div>
+              <h4>R. Karthik</h4>
+              <span>Class of 2023 &bull; IIT Madras / Tech Founder</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dr. Ramanathan -->
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-quote">&ldquo;As a medical specialist in Coimbatore, I look for a school that blends scientific rigor with strong moral values. Luffy International School delivers both with distinction. Both my children are thriving intellectually.&rdquo;</p>
+          <div class="testi-author">
+            <img src="images/parent-ramanathan-new.jpg" alt="Dr. S. Ramanathan, Parent">
+            <div>
+              <h4>Dr. S. Ramanathan</h4>
+              <span>Senior Cardiologist &bull; Parent of Gr 9 &amp; 11</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Anita Sen -->
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-quote">&ldquo;The primary wing's nurturing atmosphere is unmatched. My daughter wakes up thrilled for school every morning. Her reading fluency and violin skills blossomed within one term.&rdquo;</p>
+          <div class="testi-author">
+            <img src="images/parent-anita.jpg" alt="Mrs. Anita Sen, Parent">
+            <div>
+              <h4>Mrs. Anita Sen</h4>
+              <span>Senior Architect &bull; Parent of Grade 4</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTACT US SECTION (EXACT STRUCTURE OF RATHINAMSCHOOL.AC.IN/CONTACT/)
+       ========================================================================== -->
+  <!-- Contact Page Header / Connect Banner -->
+  <div class="contact-page-header" style="padding: 55px 0 40px 0; background: linear-gradient(135deg, #071526 0%, #0c2340 60%, #153966 100%); color: #fff; text-align: center;">
+    <div class="container">
+      <span class="badge-tag" style="background: rgba(245, 158, 11, 0.2); color: var(--accent-gold2); margin-bottom: 12px;">Get in Touch</span>
+      <h2 class="contact-hero-title" style="margin-top: 10px; font-size: 2.4rem; color: #fff;">Connect With Our Admissions Desk</h2>
+      <div class="gold-divider"></div>
+      <p class="contact-hero-desc" style="max-width: 720px; margin: 0 auto; color: #cbd5e1;">Join us on a journey of discovery and growth! Visit our 28-acre campus in Ondipudur, Coimbatore or connect with our counselors for 2026-27 admissions.</p>
+    </div>
+  </div>
+
+  <!-- Contact Information & Interactive Form Grid -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <!-- Left: Contact Information Card -->
+        <div class="contact-info-card">
+          <div class="info-card-header">
+            <span class="badge-tag">Reach Our Office</span>
+            <h2>Contact Information</h2>
+            <p>Our dedicated admissions counseling team in Ondipudur, Coimbatore is ready to guide your family through curriculum details, campus visits, and seat reservations.</p>
+          </div>
+
+          <div class="contact-item-list">
+            <!-- Phone -->
+            <div class="contact-item-box">
+              <div class="contact-icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg>
+              </div>
+              <div class="contact-item-content">
+                <h3>Direct Phone</h3>
+                <p><a href="tel:04222271367">0422-2271367</a> &bull; <a href="tel:+919443022345">+91 94430 22345</a></p>
+                <small style="color:var(--text-muted)">Monday &ndash; Saturday (8:30 AM &ndash; 5:30 PM)</small>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-item-box">
+              <div class="contact-icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </div>
+              <div class="contact-item-content">
+                <h3>Email Admissions</h3>
+                <p><a href="mailto:admissions@luffyinternationalschool.edu">admissions@luffyinternationalschool.edu</a></p>
+                <p><a href="mailto:cbec_susaiappar@yahoo.co.in">cbec_susaiappar@yahoo.co.in</a></p>
+              </div>
+            </div>
+
+            <!-- Campus Address -->
+            <div class="contact-item-box">
+              <div class="contact-icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <div class="contact-item-content">
+                <h3>Luffy International School Campus</h3>
+                <p>Luffy International School, Trichy Main Road, Ondipudur, Coimbatore &ndash; 641016, Tamil Nadu, India.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="working-hours-badge">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--accent)"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            <span>Campus Visiting Hours: Mon &ndash; Sat &bull; 8:30 AM &ndash; 5:30 PM</span>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Form & Instant Pass Generator -->
+        <div class="contact-form-card">
+          <div class="form-header">
+            <span class="badge-tag">Quick Enquiry</span>
+            <h2>Send us a Message</h2>
+            <p>Fill out the form below. Our admissions counselor will contact you within 2 hours with syllabus and fee details.</p>
+          </div>
+
+          <form id="contactForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="parentName">Your Name *</label>
+                <input type="text" id="parentName" class="form-control" placeholder="e.g. S. Sundararajan" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="parentEmail">Your Email *</label>
+                <input type="email" id="parentEmail" class="form-control" placeholder="name@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="parentPhone">Phone Number *</label>
+                <input type="tel" id="parentPhone" class="form-control" placeholder="10-digit mobile number" required pattern="[0-9]{10}">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="admissionGrade">Seeking Grade *</label>
+                <select id="admissionGrade" class="form-control" required>
+                  <option value="" disabled selected>Select Grade</option>
+                  <option value="Pre-KG / Kindergarten">Pre-KG / Kindergarten</option>
+                  <option value="Primary (Grades 1-5)">Primary (Grades 1 - 5)</option>
+                  <option value="Middle School (Grades 6-8)">Middle School (Grades 6 - 8)</option>
+                  <option value="Secondary (Grades 9-10)">Secondary (Grades 9 - 10)</option>
+                  <option value="Senior Secondary (Science)">Senior Secondary (Science &bull; Biology/CS)</option>
+                  <option value="Senior Secondary (Commerce)">Senior Secondary (Commerce &bull; Applied Math)</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label" for="enquirySubject">Your Subject *</label>
+                <input type="text" id="enquirySubject" class="form-control" placeholder="e.g. Admission Enquiry for AY 2026-27" required>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label" for="enquiryMessage">Message *</label>
+                <textarea id="enquiryMessage" class="form-control" placeholder="Tell us about your child's interests or questions on transport, scholarships, etc." required></textarea>
+              </div>
+
+              <div class="form-group full-width" style="margin-top: 10px;">
+                <button type="submit" class="btn btn-accent" style="width: 100%; font-size: 1.05rem; padding: 14px;">
+                  <span>Send Message &amp; Generate Visitor Pass</span>
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 11 THREE FEATURE CARDS (FROM RATHINAMSCHOOL.AC.IN/CONTACT/)
+       ========================================================================== -->
+  <section class="feature-contact-cards">
+    <div class="container">
+      <div class="cards-row-three">
+        
+        <!-- Card 1: Phone -->
+        <div class="feature-card">
+          <div class="feature-circle-icon">
+            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.28-.28.37-.68.25-1.02A11.36 11.36 0 019 4.27c0-.55-.45-1-1-1H4.5c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.89c0-.55-.45-1-1-1z"/></svg>
+          </div>
+          <h3>Phone Support</h3>
+          <div class="feature-highlight">8144 260 260 / 0422-2271367</div>
+          <p>Direct assistance from our admissions counselors for seat availability, syllabus guidelines, and transport routing.</p>
+        </div>
+
+        <!-- Card 2: Email -->
+        <div class="feature-card">
+          <div class="feature-circle-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <h3>Email Desk</h3>
+          <div class="feature-highlight">admissions@luffyinternationalschool.edu</div>
+          <p>Receive our complete 2026&ndash;27 prospectus, fee breakdown, and scholarship criteria directly in your inbox within 2 hours.</p>
+        </div>
+
+        <!-- Card 3: Campus Location -->
+        <div class="feature-card">
+          <div class="feature-circle-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h3>RPS Campus Visit</h3>
+          <div class="feature-highlight">Ondipudur, Coimbatore &ndash; 641016</div>
+          <p>Walk-ins welcome every weekday &amp; Saturday for guided walkthroughs of our 28-acre smart campus and laboratories.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE CAMPUS MAP (LEAFLET PINNED TO ONDIPUDUR, COIMBATORE)
+       ========================================================================== -->
+  <section class="map-section" id="map">
+    <div id="campusMap"></div>
+    <div class="map-overlay-card">
+      <span class="badge-tag" style="margin-bottom:6px;">Directions &bull; Ondipudur</span>
+      <h4>Luffy International School Campus</h4>
+      <p>Trichy Main Road, Ondipudur, Coimbatore - 641016.<br>Located 2 km from Singanallur Bus Terminal &amp; 15 mins from Coimbatore Junction.</p>
+      <a href="https://maps.google.com/?q=Ondipudur+Coimbatore+641016" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.84rem;">
+        <span>Get Driving Directions</span>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+      </a>
+    </div>
+  </section>
+  <!-- ==========================================================================
+       INSTITUTIONAL FOOTER (4-COLUMN ARCHITECTURE FROM RATHINAM)
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      
+      <!-- Col 1: About Us -->
+      <div class="footer-col footer-about">
+        <h3>About Us</h3>
+        <p>Luffy International School is operated and managed by Luffy Educational Trust, committed to delivering holistic, globally benchmarked education in Ondipudur, Coimbatore.</p>
+        <div style="font-size:0.84rem;color:#cbd5e1;margin-bottom:18px;">
+          <strong>CBSE Affiliation No:</strong> 1930452<br>
+          <strong>School Code:</strong> 55341 &bull; ISO 9001:2015
+        </div>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" class="social-btn" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="#" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">&rsaquo; Home</a></li>
+          <li><a href="about.html">&rsaquo; About Luffy</a></li>
+          <li><a href="about.html#leadership">&rsaquo; Principal's Desk</a></li>
+          <li><a href="curriculum.html">&rsaquo; Curriculum &amp; NEP 2026</a></li>
+          <li><a href="advanced-stem-labs.html">&rsaquo; Campus Facilities</a></li>
+          <li><a href="blog.html">&rsaquo; Educational Blog</a></li>
+          <li><a href="contact.html">&rsaquo; Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Programs & Beyond -->
+      <div class="footer-col">
+        <h3>Academics</h3>
+        <ul class="footer-links">
+          <li><a href="post-school-activities.html">&rsaquo; Post-School Activities</a></li>
+          <li><a href="celebrations-cultural-day.html">&rsaquo; Celebrations &amp; Cultural Day</a></li>
+          <li><a href="career-counselling.html">&rsaquo; Career Counselling</a></li>
+          <li><a href="cbse-cluster-athletics.html">&rsaquo; CBSE Cluster Athletics</a></li>
+          <li><a href="guest-lectures-hackathons.html">&rsaquo; Guest Lectures &amp; Hackathons</a></li>
+          <li><a href="smart-coding-innovation-hub.html">&rsaquo; Smart Coding &amp; Robotics Hub</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact Information -->
+      <div class="footer-col">
+        <h3>Contact RPS Campus</h3>
+        <div class="footer-contact-items">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Trichy Main Road, Ondipudur, Coimbatore &ndash; 641016, Tamil Nadu.</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg>
+            <span>0422-2271367 &bull; +91 94430 22345</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span>admissions@luffyinternationalschool.edu</span>
+          </div>
+          <div style="margin-top:8px;">
+            <a href="#" class="btn btn-outline-white" style="font-size:0.78rem;padding:6px 14px;">Mandatory Public Disclosures (SARAS)</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sub-footer Bottom -->
+    <div class="sub-footer">
+      <div class="container sub-footer-wrap">
+        <div>&copy; 2026 Luffy International School. All Rights Reserved.</div>
+        <div class="sub-footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">CBSE SARAS</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FLOATING ELEMENTS (VERTICAL ENQUIRE TAB & WHATSAPP)
+       ========================================================================== -->
+
+  <a href="https://wa.me/919443022345?text=Hello%20Luffy%20International%20School%2C%20I%20would%20like%20to%20enquire%20about%20admissions%20for%20AY%202026-27." target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.71 4.3 3.79.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.18-.47-.3z"/></svg>
+  </a>
+
+  <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: DIGITAL ADMISSIONS & VISITOR PASS GENERATOR
+       ========================================================================== -->
+  <div class="modal-backdrop" id="passModal">
+    <div class="modal-window">
+      <button class="modal-close-btn" onclick="closeModal('passModal')">&times;</button>
+      <div class="modal-body" id="passContent">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal for Gallery -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+    <img src="" alt="" class="lightbox-img" id="lightboxImg">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- Toast Element -->
+  <div class="toast-box" id="toastBox">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--accent-gold2)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+    <span id="toastMsg">Action Successful</span>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT: CAROUSEL, MAP, TABS, FORM ENGINE, PASS GENERATOR
+       ========================================================================== -->
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <script>
+    /* 1. Hero Carousel Controller */
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let slideTimer = null;
+
+    function showSlide(index) {
+      if (index >= slides.length) index = 0;
+      if (index < 0) index = slides.length - 1;
+      currentSlide = index;
+
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    function moveSlide(dir) {
+      clearInterval(slideTimer);
+      showSlide(currentSlide + dir);
+      startSlideAuto();
+    }
+
+    function goToSlide(index) {
+      clearInterval(slideTimer);
+      showSlide(index);
+      startSlideAuto();
+    }
+
+    function startSlideAuto() {
+      slideTimer = setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, 5500);
+    }
+    startSlideAuto();
+
+    /* 2. Interactive Leaflet Campus Map Pinned to Ondipudur, Coimbatore */
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const coimbatoreCoords = [11.0028, 77.0370]; // Ondipudur, Coimbatore
+        const map = L.map('campusMap', {
+          center: coimbatoreCoords,
+          zoom: 15,
+          scrollWheelZoom: false
+        });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        const customIcon = L.divIcon({
+          className: 'custom-map-marker',
+          html: '<div style="background:#0c2340;color:#f59e0b;padding:8px 12px;border-radius:12px;border:2px solid #f59e0b;font-weight:700;font-size:12px;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,0.3);display:flex;align-items:center;gap:6px;">&#127891; Luffy International School</div>',
+          iconSize: [180, 40],
+          iconAnchor: [90, 40]
+        });
+
+        const marker = L.marker(coimbatoreCoords, { icon: customIcon }).addTo(map);
+        marker.bindPopup(`
+          <div style="font-family:Inter,sans-serif;padding:4px;">
+            <strong style="color:#0c2340;font-size:14px;">Luffy International School</strong>
+            <p style="margin:4px 0 8px;font-size:12px;color:#64748b;">Trichy Main Road, Ondipudur, Coimbatore - 641016.</p>
+            <a href="tel:04222271367" style="color:#f59e0b;font-weight:600;font-size:12px;">Call: 0422-2271367</a>
+          </div>
+        `).openPopup();
+      } catch (err) {
+        console.warn('Map initialization:', err);
+      }
+    });
+
+    /* 3. Stage Filtering Tabs */
+    function filterStageTab(stage) {
+      const btns = document.querySelectorAll('.stage-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const cards = document.querySelectorAll('.stage-card');
+      cards.forEach(card => {
+        if (stage === 'all' || card.getAttribute('data-stage') === stage) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    /* 4. Contact Form Submission & Digital Pass Generator */
+    function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('parentName').value.trim();
+      const email = document.getElementById('parentEmail').value.trim();
+      const phone = document.getElementById('parentPhone').value.trim();
+      const grade = document.getElementById('admissionGrade').value;
+      const subject = document.getElementById('enquirySubject').value.trim();
+
+      const passNumber = 'MCR-' + Math.floor(100000 + Math.random() * 900000);
+      const visitDate = new Date();
+      visitDate.setDate(visitDate.getDate() + 1);
+      const dateStr = visitDate.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+
+      // Generate HTML for Visitor & Admissions Pass
+      const passHTML = `
+        <div style="text-align:center;margin-bottom:20px;">
+          <div style="display:inline-block;padding:6px 16px;background:rgba(245,158,11,0.15);color:#d97706;border-radius:999px;font-size:12px;font-weight:700;text-transform:uppercase;margin-bottom:8px;">Official Digital Pass</div>
+          <h3 style="color:#0c2340;font-size:22px;margin-bottom:4px;">Admissions &amp; Campus Visitor Pass</h3>
+          <p style="color:#64748b;font-size:13px;">Luffy International School &bull; Ondipudur, Coimbatore</p>
+        </div>
+
+        <div style="background:#f8fafc;border:2px dashed #cbd5e1;border-radius:12px;padding:20px;margin-bottom:24px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;border-bottom:1px solid #e2e8f0;padding-bottom:10px;">
+            <span style="color:#64748b;font-size:12px;">Pass ID Number:</span>
+            <strong style="color:#0c2340;font-family:monospace;font-size:14px;">${passNumber}</strong>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+            <span style="color:#64748b;font-size:13px;">Parent / Candidate:</span>
+            <strong style="color:#0c2340;font-size:13px;">${name}</strong>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+            <span style="color:#64748b;font-size:13px;">Seeking Grade:</span>
+            <span style="color:#d97706;font-weight:700;font-size:13px;">${grade}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+            <span style="color:#64748b;font-size:13px;">Registered Contact:</span>
+            <span style="color:#0c2340;font-size:13px;">${phone} (${email})</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+            <span style="color:#64748b;font-size:13px;">Campus Visit Valid:</span>
+            <strong style="color:#10b981;font-size:13px;">${dateStr} (8:30 AM - 5:30 PM)</strong>
+          </div>
+          <div style="display:flex;justify-content:space-between;">
+            <span style="color:#64748b;font-size:13px;">Campus Venue:</span>
+            <span style="color:#0c2340;font-size:13px;">Admissions Suite, Ondipudur</span>
+          </div>
+        </div>
+
+        <div style="background:#eff6ff;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:12px;color:#1e40af;display:flex;align-items:center;gap:10px;">
+          <span style="font-size:18px;">&#128077;</span>
+          <span>A copy of this digital pass and prospectus has been queued for your email <strong>${email}</strong>. Please present this pass at the campus reception gate.</span>
+        </div>
+
+        <div style="display:flex;gap:12px;">
+          <button class="btn btn-accent" style="flex:1;" onclick="window.print()">Print / Save Pass</button>
+          <button class="btn btn-outline" style="flex:1;" onclick="closeModal('passModal')">Done</button>
+        </div>
+      `;
+
+      document.getElementById('passContent').innerHTML = passHTML;
+      openModal('passModal');
+      showToast('Enquiry received! Digital Visitor Pass created.');
+      document.getElementById('contactForm').reset();
+    }
+
+    /* 5. Modal and Lightbox Helpers */
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('lightboxModal');
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxCaption').textContent = caption;
+      modal.classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.remove('active');
+    }
+
+    /* 6. Toast Notification Helper */
+    function showToast(msg) {
+      const toast = document.getElementById('toastBox');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 4000);
+    }
+
+    function copyContact(text, msg) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(msg);
+      }).catch(() => {
+        showToast('Copied: ' + text);
+      });
+    }
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* 7. Scroll & Back-to-Top Listener */
+    window.addEventListener('scroll', () => {
+      const btt = document.getElementById('backToTop');
+      if (window.scrollY > 400) {
+        btt.classList.add('show');
+      } else {
+        btt.classList.remove('show');
+      }
+    });
+
+    function toggleMobileNav() {
+      const menu = document.querySelector('.nav-menu');
+      if (menu.style.display === 'flex') {
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'flex';
+        menu.style.flexDirection = 'column';
+        menu.style.position = 'absolute';
+        menu.style.top = '84px';
+        menu.style.left = '0';
+        menu.style.right = '0';
+        menu.style.background = '#ffffff';
+        menu.style.padding = '20px';
+        menu.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+      }
+    }
+  </script>
+</body>
+</html>
